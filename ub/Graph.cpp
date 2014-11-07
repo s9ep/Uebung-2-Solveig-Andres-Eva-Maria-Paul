@@ -21,11 +21,14 @@ template <class Category, class T, class Distance = ptrdiff_t,
 Graph::Graph() {
 private:
 	std::list<Node> nodelist;
+	std::list<Edge> edgelist;
 	Node thisnode;
+	Edge thisedge;
 	
 public:
 
 	Node get_Node {return (thisnode);}
+	Node get_Edge {return (thisedge);}
 	
 	  struct iterator {
 	    typedef T         value_type;
@@ -72,13 +75,16 @@ void Graph::removeNode(Node& node){
 //	Node::get_OutEdge.remove(node);
 }
 
+Edge getEdge(Node& src, Node& target){
+	if (Node::getEdge(src, target)==
+}
 
 
 
 
 
 
-
+//TODO unvollständig
 
 std::istream& operator >> (std::istream& strm, Graph& graph){
 
