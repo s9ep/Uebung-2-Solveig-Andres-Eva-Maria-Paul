@@ -5,24 +5,21 @@
 /*
  * Default - Konstruktor
  */
-Edge::Edge():Edge{
-    Edge::target=0;
-    Edge::source=0;
+Edge::Edge():target(),source(){
+    
 }
+
 /*
  * Copy - Konstruktor
  */
-Edge::Edge(const Edge& edge):edge(Edge){
-    Edge::target=edge.getTarget();
-    Edge::source=edge.getSource();
+Edge::Edge(const Edge& edge):target(edge.target),source(edge.source){
+ 
 }
 
 /*
  * Detailed - Konstruktor
  */
-Edge(Node& s,Node& t){
-    Edge::source=s;
-    Edge::target=t;
+Edge(const Node& s, const Node& t):target(t),source(s){
 }
 
 /*
