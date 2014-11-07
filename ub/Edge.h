@@ -1,10 +1,3 @@
-/*
- * Edge.h
- *
- *  Created on: Nov 7, 2014
- *      Author: s9evpaul
- */
-
 #ifndef EDGE_H_
 #define EDGE_H_
 
@@ -26,9 +19,8 @@ public:
 	virtual ~Edge();
     
     /*
-     * Zuweisungsoperator
+     * Zuweisungsoperatoratoren
      */
-    
     
     /* 
      * liefert den Ausgangsknoten der Kante zurueck
@@ -44,6 +36,17 @@ public:
      * liefert die Ueberlappung der Knoten zurueck
      */
     unsigned int getOverlap() const
+    
+    /*
+     * setzt den Source - Knoten
+     */
+    void setSource(const Node& source_node);
+    
+    /*
+     * setzt den Target - Knoten
+     */
+    void setSource(const Node& target_node);
+
     
 private:
     Node& source;
