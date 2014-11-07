@@ -17,13 +17,30 @@ public:
     Edge(const Edge& edge);
     
     /*
+     * Detailed - Konstruktor
+     */
+    Edge(const Node& s, const Node& t);
+    
+    
+    /*
      * Destruktor
      */
 	virtual ~Edge();
     
     /*
-     * Zuweisungsoperatoratoren
+     * Zuweisungsoperatorator "="
      */
+    Edge& operator=(const Edge& edge);
+    
+    /*
+     * Operator "=="
+     */
+    bool operator==(const Edge& edge) const;
+
+    /*
+     * Operator "!="
+     */
+    bool operator!=(const Edge& edge) const;
     
     /* 
      * liefert den Ausgangsknoten der Kante zurueck
