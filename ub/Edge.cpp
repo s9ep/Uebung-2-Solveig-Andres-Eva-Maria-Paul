@@ -1,8 +1,12 @@
 #include "Edge.h"
 
-Edge::Edge() {
-	// TODO Auto-generated constructor stub
 
+
+/*
+ * Default - Konstruktor
+ */
+Edge(){
+    
 }
 
 Edge::~Edge() {

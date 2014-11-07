@@ -1,6 +1,9 @@
 #ifndef EDGE_H_
 #define EDGE_H_
 
+#include "node.h"
+
+
 class Edge {
 public:
     /*
@@ -25,17 +28,17 @@ public:
     /* 
      * liefert den Ausgangsknoten der Kante zurueck
      */
-    const Node& getSource() const
+    const Node& getSource() const;
     
     /*
      * liefert den Zielknoten der Kante zurueck
      */
-    const Node& getTarget() const
+    const Node& getTarget() const;
     
     /*
      * liefert die Ueberlappung der Knoten zurueck
      */
-    unsigned int getOverlap() const
+    unsigned int getOverlap() const;
     
     /*
      * setzt den Source - Knoten
@@ -45,7 +48,7 @@ public:
     /*
      * setzt den Target - Knoten
      */
-    void setSource(const Node& target_node);
+    void setTarget(const Node& target_node);
 
     
 private:
