@@ -10,8 +10,38 @@
 
 class Node {
 public:
+    /*
+     * Default - Konstruktor
+     */
 	Node();
+    
+    /*
+     * Destruktor
+     */
 	virtual ~Node();
+    
+    /*
+     * Zuweisungsoperatorator "="
+     */
+    Node& operator=(const Node& node);
+    
+    /*
+     * Operator "=="
+     */
+    bool operator==(const Node& node) const;
+    
+    /*
+     * Operator "!="
+     */
+    bool operator!=(const Node& node) const;
+
+    
+    
+    
+    
+    
 };
+
+
 
 #endif /* NODE_H_ */
