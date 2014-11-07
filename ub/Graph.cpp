@@ -16,6 +16,11 @@ Graph::~Graph() {
 	// TODO Auto-generated destructor stub
 }
 
-Graph( const Graph& seq){
+
+bool hasNode(const Sequence seq&){
 
 }
+
+
+
+

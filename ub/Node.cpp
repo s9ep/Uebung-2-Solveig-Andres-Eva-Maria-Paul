@@ -7,7 +7,7 @@
 
 #include "Node.h"
 
-Node::Node() {
+Node::Node(Sequence& s) {
 	// TODO Auto-generated constructor stub
 
 }
@@ -15,4 +15,6 @@ Node::Node() {
 Node::~Node() {
 	// TODO Auto-generated destructor stub
 }
+
+
 
