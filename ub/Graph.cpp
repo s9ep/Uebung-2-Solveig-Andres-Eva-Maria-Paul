@@ -6,7 +6,8 @@
  */
 
 #include "Graph.h"
-
+#include <conio.h>
+#include <fstream.h>
 
 
 #include <iostream>
@@ -69,6 +70,40 @@ void Graph::removeNode(Node& node){
 	nodelist.remove(node);
 //	Node::get_InEdge.remove(node);
 //	Node::get_OutEdge.remove(node);
+}
+
+
+
+
+
+
+
+
+
+std::istream& operator >> (std::istream& strm, Graph& graph){
+
+    if(!strm.good()) //Returns true if none of the stream's error state flags (eofbit, failbit and badbit) is set.
+        return strm;
+    
+
+    char buf[4096];
+    unsigned int currentchar = 0;
+    
+   // fstream datei("fragments.fta",ios::in);
+	
+    while(strm.good())
+    {
+        strm.getline(&buf[0], 4096);
+    
+
+        if(!seq.isValid())
+        {
+            std::cout << "Skip: '" << seq << "'" << std::endl;
+            continue;
+        }
+    
+    
+    datei.close();
 }
 
 
