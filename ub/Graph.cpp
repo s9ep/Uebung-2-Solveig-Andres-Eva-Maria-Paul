@@ -13,6 +13,9 @@
 #include <iostream>
 #include<cstdlib>
 #include <list>
+#include <algorithm>
+
+
 
 using namespace std;
 template <class Category, class T, class Distance = ptrdiff_t,
@@ -76,11 +79,26 @@ void Graph::removeNode(Node& node){
 }
 
 Edge getEdge(Node& src, Node& target){
-	if (Node::getEdge(src, target)==
+	if (std::list<Edge>::iterator findEdge = std::find(edgelist.begin(), edgelist.end(), (src, target))==0) 
+		&& (std::list<Edge>::iterator findEdge = std::find(edgelist.begin(), edgelist.end(), (target, src))==0){ //zweiter iterator unnötig??
+			Edge *newedge = new Edge(src, target);
+			return newedge;
+	}else{
+		return findEdge;
+	}
 }
 
-
-
+Edge getEdge(const Sequence& src, const Sequence& target){
+	Node srcnode = src.getNode();
+	Node targetnode = target.getNode();
+	if (srcnode ==0){//eine der beiden nodes leer? neuen erstellen
+		srcnode = new Node(src);
+	}
+	if (targetnode ==0){
+			targetnode = new Node(target);
+		}
+	return getEdge(srcnode, targetnode); //edge zw. src und target zurückgeben
+}
 
 
 
