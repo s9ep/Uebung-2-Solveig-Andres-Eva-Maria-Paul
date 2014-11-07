@@ -1,12 +1,8 @@
-/*
- * Edge.h
- *
- *  Created on: Nov 7, 2014
- *      Author: s9evpaul
- */
-
 #ifndef EDGE_H_
 #define EDGE_H_
+
+#include "node.h"
+
 
 class Edge {
 public:
@@ -26,24 +22,34 @@ public:
 	virtual ~Edge();
     
     /*
-     * Zuweisungsoperator
+     * Zuweisungsoperatoratoren
      */
-    
     
     /* 
      * liefert den Ausgangsknoten der Kante zurueck
      */
-    const Node& getSource() const
+    const Node& getSource() const;
     
     /*
      * liefert den Zielknoten der Kante zurueck
      */
-    const Node& getTarget() const
+    const Node& getTarget() const;
     
     /*
      * liefert die Ueberlappung der Knoten zurueck
      */
-    unsigned int getOverlap() const
+    unsigned int getOverlap() const;
+    
+    /*
+     * setzt den Source - Knoten
+     */
+    void setSource(const Node& source_node);
+    
+    /*
+     * setzt den Target - Knoten
+     */
+    void setTarget(const Node& target_node);
+
     
 private:
     Node& source;
