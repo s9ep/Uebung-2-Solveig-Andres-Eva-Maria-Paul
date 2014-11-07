@@ -6,11 +6,12 @@
  */
 
 #include "Node.h"
+#include "Sequence.h"
 
-Node::Node(Sequence& s) {
-	// TODO Auto-generated constructor stub
+Node::Node(const Node& n){
 
 }
+
 
 Node::~Node() {
 	// TODO Auto-generated destructor stub

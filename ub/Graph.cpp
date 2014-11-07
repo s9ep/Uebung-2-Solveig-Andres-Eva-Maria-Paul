@@ -12,15 +12,24 @@ Graph::Graph() {
 
 }
 
+
+Graph::Graph(const Graph& g) {
+	// TODO Auto-generated constructor stub
+
+}
+
 Graph::~Graph() {
 	// TODO Auto-generated destructor stub
 }
 
 
-bool hasNode(const Sequence seq&){
+bool hasNode(const Sequence& seq)const{
 
 }
 
 
+Node& getNode(const Sequence& seq){
+	if
 
+}
 
