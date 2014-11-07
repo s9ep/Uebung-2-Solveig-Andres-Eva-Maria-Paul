@@ -11,13 +11,16 @@
 class Node{
 private:
 	 string* newseq;
-	 std::list<Edge> praedge; 
-	 std::list<Edge> postedge; 
-	 Edge edgearray[praedge][postedge];
+	 std::list<Edge> inedge; 
+	 std::list<Edge> outedge; 
+	 Edge edgearray[inedge][outedge];
 	 
 	
 public:
-	Node::Node(string* newseq){
+	 Node get_InEdge{return (inedge);}
+	 Node get_OutEdge {return (outedge);}
+	 
+	 Node::Node(string* newseq){
 		newseq = new string[strlen(newseq)+1];
 		
 	}
