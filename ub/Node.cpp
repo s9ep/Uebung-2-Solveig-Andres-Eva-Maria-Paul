@@ -8,14 +8,33 @@
 #include "Node.h"
 #include "Sequence.h"
 
-Node::Node(const Node& n){
+class Node{
+private:
+	 string* newseq;
+	 std::list<Edge> praedge; 
+	 std::list<Edge> postedge; 
+	 Edge edgearray[praedge][postedge];
+	 
+	
+public:
+	Node::Node(string* newseq){
+		newseq = new string[strlen(newseq)+1];
+		
+	}
 
-}
+	Node::Node(const Node& n){
+
+	}
 
 
-Node::~Node() {
-	// TODO Auto-generated destructor stub
-}
+	Node::~Node() {
+		// TODO Auto-generated destructor stub
+	}
+
+	
+	
+	
+};
 
 
 
