@@ -3,7 +3,25 @@
 #include "Edge.h"
 
 
+/*
+ * Default - Konstruktor
+ */
+Node::Node(){
+}
 
+/*
+ * Copy - Konstruktor
+ */
+Node::Node(const Node& node){
+    
+}
+
+/*
+ * Detailed Konstruktor
+ */
+Node::Node(const Sequence& sequence){
+seq=sequence
+}
 
 
 

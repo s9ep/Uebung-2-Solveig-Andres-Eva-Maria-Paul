@@ -14,12 +14,7 @@ public:
 	explicit Sequence(const Sequence& seq);
 
 	//Detailed - Constructor
-	Sequence(const std::string& seq);
-
-
-
-
-
+    Sequence(const std::string& seq);
 
 	//************ DESTRUCTOR ********************/
 	//Destructor
@@ -41,34 +36,17 @@ public:
 	// Inequality - Operator "!="
     bool operator!=(const Sequence& seq) const;
 	
-	// ">>"
-	// TODO
-	//friend std::ostream& operator<<(std::ostream&, const Sequence&);
-
-	// "<<"
-	// TODO
-	//friend std::istream& operator>>(std::istream&, Sequence&);
-
-
-
-
 
 
 	//************ METHODS ********************/
 
-	/**
-	*
-	**/
+	//Compare
 	bool compare(const Sequence& seq, unsigned int i) const;
 
-	/**
-	*
-	**/
+	//Overlap
 	unsigned int overlap(const Sequence& seq) const;
 
-	/**
-	*
-	**/
+	//IsValid
 	virtual bool isValid() const = 0;
 
     virtual void clear();
@@ -76,7 +54,7 @@ public:
 
 
 
-protected:
+public:
 	// Sequence
 	std::string sequence_;
 

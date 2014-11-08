@@ -64,7 +64,7 @@ public:
     
 private:
     
-    std::string* newseq;        //Sequenz
+    std::string seq;           //Sequenz
     std::vector<Edge> inedges;  //eingehenden Kanten
     std::vector<Edge> outedges; //ausgehenden Kanten
 
