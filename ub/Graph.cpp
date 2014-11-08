@@ -8,21 +8,23 @@
 #include "Graph.h"
 #include <conio.h>
 #include <fstream.h>
+#include "NucleicAcid.h"
 
-
+#include <stdio.h>
+#include <stdlib.h>
 #include <iostream>
-#include<cstdlib>
+#include <cstdlib>
 #include <list>
 #include <algorithm>
 #include <vector>
+#include <stack>
+#include <map>
 
 
 
 using namespace std;
-template <class Category, class T, class Distance = ptrdiff_t,
-          class Pointer = T*, class Reference = T&>
-
-public:
+//template <class Category, class T, class Distance = ptrdiff_t,
+//          class Pointer = T*, class Reference = T&>
 
 	std::list<Node> nodelist;
 	std::vector<Edge> edgelist;
@@ -30,24 +32,71 @@ public:
 	Edge thisedge;
 	
 
-	Node getterNode {return (thisnode);}
-	Node getterEdge {return (thisedge);}
-	
+	/**
+	 * Constructor, Destructor
+	 */
 
-
+	// Default - Constructor
 Graph::Graph() {
-
 }
 
-
+//constructor stub
 Graph::Graph(const Graph& g) {
-	// TODO Auto-generated constructor stub
-
+    graph_ = g.graph_;
 }
 
+//Detailed Constructor
+Graph::Graph(const std::string& g){
+    graph_ = g;
+}
+
+//destructor stub
 Graph::~Graph() {
-	// TODO Auto-generated destructor stub
 }
+
+
+
+	/**
+	 * Getter, Setter
+	 */
+
+void setterNode(Node& n){
+	thisnode = n;
+}
+
+Node getterNode(){
+	return (thisnode);
+}
+
+void setterEdge(Edge& e){
+	thisedge = e;
+}
+
+Edge getterEdge(){
+	return (thisedge);
+}
+
+void setterNodelist(std::list<Node>& nl){
+	nodelist = nl;
+}
+
+std::list<Node> getterNodelist(){
+	return (nodelist);
+}
+
+void setterEdgelist(std::list<Edge>& el){
+	edgelist = el;
+}
+
+std::list<Edge> getterEdgelist(){
+	return (edgelist);
+}
+
+
+
+/**
+ * Methods
+ */
 
 
 bool Graph::hasNode(const Sequence& seq)const{
@@ -62,7 +111,7 @@ Node& Graph::getNode(const Sequence& seq){
 		return seq.getterNode();
 	}else{
 		Node *newnode = new Node; //wenn sequence keinen node hat, erstelle einen neuen node
-		 nodelist.push_back(newnode); //füge den node in die liste hinzu
+		nodelist.push_back(*newnode); //füge den node in die liste hinzu
 		return newnode; // gib den neuen node zurück
 	}
 }
@@ -82,7 +131,7 @@ Edge getEdge(Node& src, Node& target){
 		return findEdge;
 	}else{
 		Edge *newedge = new Edge(src, target);
-		edgelist.insert(newedge);
+		edgelist.push_back(*newedge);
 		return newedge;
 	}
 }
@@ -90,7 +139,7 @@ Edge getEdge(Node& src, Node& target){
 Edge getEdge(const Sequence& src, const Sequence& target){
 	Node srcnode = src.getNode();
 	Node targetnode = target.getNode();
-	if (srcnode ==0){//eine der beiden nodes leer? neuen erstellen
+	if (srcnode==0){//eine der beiden nodes leer? neuen erstellen
 		srcnode = new Node(src);
 	}
 	if (targetnode ==0){
@@ -99,34 +148,44 @@ Edge getEdge(const Sequence& src, const Sequence& target){
 	return getEdge(srcnode, targetnode); //edge zw. src und target zurückgeben
 }
 
-
-
-//TODO unvollständig
-
-std::istream& operator >> (std::istream& strm, Graph& graph){
-
-    if(!strm.good()) //Returns true if none of the stream's error state flags (eofbit, failbit and badbit) is set.
-        return strm;
-    
-
-    char buf[4096];
-    unsigned int currentchar = 0;
-    
-   // fstream datei("fragments.fta",ios::in);
-	
-    while(strm.good())
-    {
-        strm.getline(&buf[0], 4096);
-    
-
-        if(!seq.isValid())
-        {
-            std::cout << "Skip: '" << seq << "'" << std::endl;
-            continue;
-        }
-    
-    
-    datei.close();
+void Graph::addSequence(Sequence& seq)
+{
+    Node *newn = new Node(seq);
+    nodelist.push_back(*newn);
 }
 
+//TODO unvollständig ??
+std::istream& operator>>(std::istream& strm, Graph& graph){
+    if(!strm.good())
+        return strm;
 
+    std::string s;
+    char buf[4096];
+    unsigned int ctr = 0;
+
+    while(strm.good()){
+        strm.getline(&buf[0], 4096);
+        s = s+ buf;
+
+        if(strm.fail()){ // lines to long
+                 strm.clear();
+                 continue;
+             }
+
+        if(s.empty()){
+            continue;
+        }
+
+        NucleicAcid seq(s);
+        s.clear();
+
+        if(seq.isValid()==false){
+            continue;
+        }
+
+        graph.addSequence(seq);
+        ++ctr;
+    }
+
+    return strm;
+}
