@@ -6,25 +6,32 @@
 /*
  * Default - Konstruktor
  */
-Node::Node(){
-}
+/*Node::Node(){
+}*/
 
 /*
  * Copy - Konstruktor
  */
-Node::Node(const Node& node){
-    
+Node::Node(const Node& node):sequence_(node.sequence_),inedges(node.getInEdges()),outedges(node.getOutEdges()){
 }
 
 /*
  * Detailed Konstruktor
  */
-Node::Node(const Sequence& sequence){
-seq=sequence
+Node::Node(const Sequence& sequence):sequence_(node.sequence_){
 }
 
 
 
+/*
+ * Zuweisungsoperatorator "="
+ */
+Node& Node::operator=(const Node& node){
+    sequence_= node.sequence_;
+    inedges=node.getInEdges();
+    outedges=node.getOutEdges();
+    
+}
 
 
 
