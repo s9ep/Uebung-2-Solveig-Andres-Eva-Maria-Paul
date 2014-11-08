@@ -54,7 +54,7 @@ public:
 
 
 
-protected:
+public:
 	// Sequence
 	std::string sequence_;
 
