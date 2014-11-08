@@ -3,9 +3,9 @@
 /*
  * Default - Konstruktor
  */
-/*Edge::Edge(){
+Edge::Edge(){
 
-}*/
+}
 
 /*
  * Copy - Konstruktor, setzt Kantengewicht

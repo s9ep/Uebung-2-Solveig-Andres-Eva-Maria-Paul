@@ -67,9 +67,9 @@ public:
     
 
     
-private:
+public:
     
-    Sequence& sequence_; // Sequenz
+    Sequence* sequence_; // Sequenz
     std::vector<Edge> inedges;  //eingehenden Kanten
     std::vector<Edge> outedges; //ausgehenden Kanten
 
