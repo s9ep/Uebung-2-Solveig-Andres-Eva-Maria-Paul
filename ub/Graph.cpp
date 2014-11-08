@@ -14,6 +14,7 @@
 #include<cstdlib>
 #include <list>
 #include <algorithm>
+#include <vector>
 
 
 
@@ -21,25 +22,20 @@ using namespace std;
 template <class Category, class T, class Distance = ptrdiff_t,
           class Pointer = T*, class Reference = T&>
 
-Graph::Graph() {
-private:
+public:
+
 	std::list<Node> nodelist;
-	std::list<Edge> edgelist;
+	std::vector<Edge> edgelist;
 	Node thisnode;
 	Edge thisedge;
 	
-public:
 
-	Node get_Node {return (thisnode);}
-	Node get_Edge {return (thisedge);}
+	Node getterNode {return (thisnode);}
+	Node getterEdge {return (thisedge);}
 	
-	  struct iterator {
-	    typedef T         value_type;
-	    typedef Distance  difference_type;
-	    typedef Pointer   pointer;
-	    typedef Reference reference;
-	    typedef Category  iterator_category;
-	  };
+
+
+Graph::Graph() {
 
 }
 
@@ -55,18 +51,18 @@ Graph::~Graph() {
 
 
 bool Graph::hasNode(const Sequence& seq)const{
-	Node nodeseq= seq.get_Node();
+	Node nodeseq= seq.getterNode();
 	return nodeseq != 0;
 }
 
 
 //get node
 Node& Graph::getNode(const Sequence& seq){
-	if (seq.hasNode==true){ //wenn sequence einen node hat, gib diesen node zurück
-		return seq.get_Node();
+	if (seq.hasNode()==true){ //wenn sequence einen node hat, gib diesen node zurück
+		return seq.getterNode();
 	}else{
 		Node *newnode = new Node; //wenn sequence keinen node hat, erstelle einen neuen node
-		 nodelist.push_back (newnode); //füge den node in die liste hinzu
+		 nodelist.push_back(newnode); //füge den node in die liste hinzu
 		return newnode; // gib den neuen node zurück
 	}
 }
@@ -79,12 +75,15 @@ void Graph::removeNode(Node& node){
 }
 
 Edge getEdge(Node& src, Node& target){
-	if (std::list<Edge>::iterator findEdge = std::find(edgelist.begin(), edgelist.end(), (src, target))==0) 
-		&& (std::list<Edge>::iterator findEdge = std::find(edgelist.begin(), edgelist.end(), (target, src))==0){ //zweiter iterator unnötig??
-			Edge *newedge = new Edge(src, target);
-			return newedge;
-	}else{
+	if (std::list<Edge>::iterator findEdge = std::find(edgelist.begin(), edgelist.end(), (src, target))!=0){
 		return findEdge;
+	}
+	if (std::list<Edge>::iterator findEdge = std::find(edgelist.begin(), edgelist.end(), (target, src))!=0){ //zweiter iterator unnötig??
+		return findEdge;
+	}else{
+		Edge *newedge = new Edge(src, target);
+		edgelist.insert(newedge);
+		return newedge;
 	}
 }
 

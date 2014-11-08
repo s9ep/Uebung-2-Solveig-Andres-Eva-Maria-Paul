@@ -12,6 +12,22 @@ class Graph {
 public:
 	Graph();
 	virtual ~Graph();
+	Graph(const Graph& g);
+
+
+
+	//methods
+
+	bool hasNode(const Sequence& seq)const;
+	Node& getNode(const Sequence& seq);
+	void removeNode(Node& node);
+	Edge getEdge(Node& src, Node& target);
+	Edge getEdge(const Sequence& src, const Sequence& target);
+
+
 };
+
+std::istream& operator>>(std::istream& strm, Graph& graph);
+
 
 #endif /* GRAPH_H_ */
