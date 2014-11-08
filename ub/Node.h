@@ -50,6 +50,11 @@ public:
     std::vector<Edge> getOutEdges() const;
     
     /*
+    * Gibt die Liste aller eingehenden Kanten zurueck
+    */
+    std::vector<Edge> getInEdges() const;
+    
+    /*
      * erstellt eine Kante von diesem zum uebergebenen Knoten mit korrekten Kantengewicht
      */
     Edge buildEdgeTo(Node &node);
@@ -62,9 +67,9 @@ public:
     
 
     
-private:
+public:
     
-    std::string seq;           //Sequenz
+    Sequence* sequence_; // Sequenz
     std::vector<Edge> inedges;  //eingehenden Kanten
     std::vector<Edge> outedges; //ausgehenden Kanten
 
