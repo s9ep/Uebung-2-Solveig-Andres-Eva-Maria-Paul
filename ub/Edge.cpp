@@ -5,40 +5,47 @@
 /*
  * Default - Konstruktor
  */
-Edge::Edge():target(),source(){
-    
-}
+/*Edge::Edge():target(),source(){
+}*/
 
 /*
  * Copy - Konstruktor
  */
 Edge::Edge(const Edge& edge):target(edge.target),source(edge.source){
- 
-}
+ }
 
 /*
  * Detailed - Konstruktor
  */
-Edge(const Node& s, const Node& t):target(t),source(s){
-}
+/*Edge:: Edge(const Node& s, const Node& t):target(t),source(s){
+    source_vorhanden=true;
+    target_vorhanden=true;
+}*/
+
 
 /*
  * Zuweisungsoperatorator "="
  */
-Edge& operator=(const Edge& edge){
-    Edge::target=edge.getTarget();
-    Edge::source=edge.getSource()
+Edge& Edge::operator=(const Edge& edge){
+    target=edge.getTarget();
+    source=edge.getSource();
+    return *this;
 }
 
 /*
  * Operator "=="
  */
-bool operator==(const Edge& edge) const;
+bool Edge::operator==(const Edge& edge) const {
+    return (edge.source==Edge::source && edge.target==Edge::target);
+}
 
 /*
  * Operator "!="
  */
-bool operator!=(const Edge& edge) const;
+bool Edge::operator!=(const Edge& edge) const{
+    return !(edge.source==Edge::source && edge.target==Edge::target);
+}
+
 
 
 
