@@ -68,9 +68,12 @@ public:
     void setTarget(const Node& target_node);
 
     
-private:
+public:
     Node& source;
     Node& target;
+    
+    bool source_vorhanden=false;
+    bool target_vorhanden=false;
 };
 
 #endif /* EDGE_H_ */
