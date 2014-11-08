@@ -52,10 +52,22 @@ public:
      */
     unsigned int getOverlap() const;
     
+    /*
+     * updated das Gewicht der Kante
+     */
+    void updateEdgeWeight();
+    
+    /*
+     * gibt das Gewicht der Kante zurück
+     */
+    unsigned int getEdgeWeight();
     
 public:
-    const Node& source;
-    const Node& target;
+    const Node& source; // Startknoten
+    const Node& target; // Zielknoten
+    
+    unsigned int edge_weight=0; // Kantengewicht
+    
     
 };
 

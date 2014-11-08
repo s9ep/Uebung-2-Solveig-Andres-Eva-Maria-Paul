@@ -11,14 +11,15 @@
  * Copy - Konstruktor
  */
 Edge::Edge(const Edge& edge):target(edge.target),source(edge.source){
+    updateEdgeWeight();
  }
 
 /*
  * Detailed - Konstruktor
  */
 Edge::Edge(const Node& s, const Node& t):target(t),source(s){
-    
-    }
+    updateEdgeWeight();
+}
 
 /*
  * Destruktor
@@ -56,8 +57,25 @@ const Node& Edge::getTarget() const{
  */
 unsigned int Edge::getOverlap() const{
     // TODO
-    return 0;
+ return 0;
 }
+
+/*
+ * updated das Gewicht der Kante
+ */
+void Edge::updateEdgeWeight(){
+    edge_weight=getOverlap();
+}
+
+
+/*
+ * gibt das Gewicht der Kante zurück
+ */
+unsigned int Edge::getEdgeWeight(){
+    return edge_weight;
+}
+
+
 
 
 
