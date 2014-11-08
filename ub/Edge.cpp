@@ -55,6 +55,7 @@ const Node& Edge::getTarget() const{
  * liefert die Ueberlappung der Knoten zurueck
  */
 unsigned int Edge::getOverlap() const{
+    // TODO
     return 0;
 }
 
