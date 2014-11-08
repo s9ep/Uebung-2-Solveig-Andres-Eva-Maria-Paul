@@ -9,7 +9,52 @@
 #define GRAPH_H_
 
 class Graph {
+/*
+ *
+ *private:
+
+
+	std::list<Node> nodelist;
+	std::vector<Edge> edgelist;
+	Node thisnode;
+	Edge thisedge;
+
 public:
+
+
+	void setterNode(Node& n){
+		thisnode = n;
+	}
+
+	Node getterNode(){
+		return (thisnode);
+	}
+
+	void setterEdge(Edge& e){
+		thisedge = e;
+	}
+
+	Edge getterEdge(){
+		return (thisedge);
+	}
+
+	void setterNodelist(std::list<Node>& nl){
+		nodelist = nl;
+	}
+
+	std::list<Node> getterNodelist(){
+		return (nodelist);
+	}
+
+	void setterEdgelist(std::list<Edge>& el){
+		edgelist = el;
+	}
+
+	std::list<Edge> getterEdgelist(){
+		return (edgelist);
+	}
+
+*/
 	Graph();
 	virtual ~Graph();
 	Graph(const Graph& g);

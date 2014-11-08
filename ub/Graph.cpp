@@ -6,8 +6,6 @@
  */
 
 #include "Graph.h"
-#include <conio.h>
-#include <fstream.h>
 #include "NucleicAcid.h"
 
 #include <stdio.h>
@@ -30,7 +28,7 @@ using namespace std;
 	std::vector<Edge> edgelist;
 	Node thisnode;
 	Edge thisedge;
-	
+
 
 	/**
 	 * Constructor, Destructor
@@ -55,10 +53,6 @@ Graph::~Graph() {
 }
 
 
-
-	/**
-	 * Getter, Setter
-	 */
 
 void setterNode(Node& n){
 	thisnode = n;
@@ -94,21 +88,21 @@ std::list<Edge> getterEdgelist(){
 
 
 
+
 /**
  * Methods
  */
 
 
 bool Graph::hasNode(const Sequence& seq)const{
-	Node nodeseq= seq.getterNode();
-	return nodeseq != 0;
+	return thisnode != 0;
 }
 
 
 //get node
 Node& Graph::getNode(const Sequence& seq){
-	if (seq.hasNode()==true){ //wenn sequence einen node hat, gib diesen node zurück
-		return seq.getterNode();
+	if (Graph::hasNode(seq)==true){ //wenn sequence einen node hat, gib diesen node zurück
+		return thisnode;
 	}else{
 		Node *newnode = new Node; //wenn sequence keinen node hat, erstelle einen neuen node
 		nodelist.push_back(*newnode); //füge den node in die liste hinzu
@@ -137,7 +131,7 @@ Edge getEdge(Node& src, Node& target){
 }
 
 Edge getEdge(const Sequence& src, const Sequence& target){
-	Node srcnode = src.getNode();
+	Node srcnode = Graph::getNode(src);
 	Node targetnode = target.getNode();
 	if (srcnode==0){//eine der beiden nodes leer? neuen erstellen
 		srcnode = new Node(src);
