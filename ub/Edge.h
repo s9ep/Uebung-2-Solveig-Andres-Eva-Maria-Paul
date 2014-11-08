@@ -28,11 +28,6 @@ public:
 	virtual ~Edge();
     
     /*
-     * Zuweisungsoperatorator "="
-     */
-    Edge& operator=(const Edge& edge);
-    
-    /*
      * Operator "=="
      */
     bool operator==(const Edge& edge) const;
@@ -57,23 +52,11 @@ public:
      */
     unsigned int getOverlap() const;
     
-    /*
-     * setzt den Source - Knoten
-     */
-    void setSource(const Node& source_node);
-    
-    /*
-     * setzt den Target - Knoten
-     */
-    void setTarget(const Node& target_node);
-
     
 public:
-    Node& source;
-    Node& target;
+    const Node& source;
+    const Node& target;
     
-    bool source_vorhanden=false;
-    bool target_vorhanden=false;
 };
 
 #endif /* EDGE_H_ */
