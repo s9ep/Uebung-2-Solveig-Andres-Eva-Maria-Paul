@@ -1,11 +1,10 @@
 #include "Edge.h"
 
-
-
 /*
  * Default - Konstruktor
  */
-/*Edge::Edge():target(),source(){
+/*Edge::Edge(){
+
 }*/
 
 /*
@@ -17,20 +16,13 @@ Edge::Edge(const Edge& edge):target(edge.target),source(edge.source){
 /*
  * Detailed - Konstruktor
  */
-/*Edge:: Edge(const Node& s, const Node& t):target(t),source(s){
-    source_vorhanden=true;
-    target_vorhanden=true;
-}*/
-
+Edge::Edge(const Node& s, const Node& t):target(t),source(s){
+    
+    }
 
 /*
- * Zuweisungsoperatorator "="
+ * Destruktor
  */
-Edge& Edge::operator=(const Edge& edge){
-    target=edge.getTarget();
-    source=edge.getSource();
-    return *this;
-}
 
 /*
  * Operator "=="
@@ -46,16 +38,29 @@ bool Edge::operator!=(const Edge& edge) const{
     return !(edge.source==Edge::source && edge.target==Edge::target);
 }
 
-
-
-
-
-
-
-
-
-
-Edge::~Edge() {
-	// TODO Auto-generated destructor stub
+/*
+ * liefert den Ausgangsknoten der Kante zurueck
+ */
+const Node& Edge::getSource() const{
+    return Edge::source;
 }
+/*
+ * liefert den Zielknoten der Kante zurueck
+ */
+const Node& Edge::getTarget() const{
+    return Edge::target;
+}
+
+/*
+ * liefert die Ueberlappung der Knoten zurueck
+ */
+unsigned int Edge::getOverlap() const{
+    return 0;
+}
+
+
+
+
+
+
 
