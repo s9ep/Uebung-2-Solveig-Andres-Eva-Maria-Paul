@@ -8,14 +8,14 @@
 }*/
 
 /*
- * Copy - Konstruktor
+ * Copy - Konstruktor, setzt Kantengewicht
  */
 Edge::Edge(const Edge& edge):target(edge.target),source(edge.source){
     updateEdgeWeight();
  }
 
 /*
- * Detailed - Konstruktor
+ * Detailed - Konstruktor, setzt Kantengewicht
  */
 Edge::Edge(const Node& s, const Node& t):target(t),source(s){
     updateEdgeWeight();
@@ -24,6 +24,8 @@ Edge::Edge(const Node& s, const Node& t):target(t),source(s){
 /*
  * Destruktor
  */
+Edge::~Edge() {
+}
 
 /*
  * Operator "=="
