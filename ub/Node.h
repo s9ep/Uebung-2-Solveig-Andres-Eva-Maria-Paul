@@ -5,6 +5,7 @@
 #include "Sequence.h"
 #include "Edge.h"
 #include <vector>
+#include <list>
 
 class Node {
 public:
@@ -61,7 +62,12 @@ public:
     
 
     
-    
+private:
+    std::string* newseq;
+    std::list<Edge> inedge;
+    std::list<Edge> outedge;
+    Edge edgearray[inedge][outedge];
+
     
     
     
