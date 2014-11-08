@@ -1,15 +1,18 @@
-/*
- * Node.cpp
- *
- *  Created on: Nov 7, 2014
- *      Author: s9evpaul
- */
-
 #include "Node.h"
 #include "Sequence.h"
+#include "Edge.h"
 
 
-Node get_InEdge{return (inedge);}
+
+
+
+
+
+
+
+
+
+/*get_InEdge{return (inedge);}
 Node get_OutEdge {return (outedge);}
 
 Node::Node(string* newseq){
@@ -26,7 +29,7 @@ Node::Node(string* newseq){
 		// TODO Auto-generated destructor stub
 	}
 
-	
+*/
 	
 	
 

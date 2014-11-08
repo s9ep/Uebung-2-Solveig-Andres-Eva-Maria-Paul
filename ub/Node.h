@@ -45,12 +45,12 @@ public:
     bool operator!=(const Node& node) const;
     
     /*
-     * Gibt die Liste aller ausgehenden Kanten zurück
+     * Gibt die Liste aller ausgehenden Kanten zurueck
      */
     std::vector<Edge> getOutEdges() const;
     
     /*
-     * erstellt eine Kante von diesem zum übergebenen Knoten mit korrekten Kantengewicht
+     * erstellt eine Kante von diesem zum uebergebenen Knoten mit korrekten Kantengewicht
      */
     Edge buildEdgeTo(Node &node);
     
@@ -63,10 +63,12 @@ public:
 
     
 private:
-    std::string* newseq;
-    std::list<Edge> inedge;
-    std::list<Edge> outedge;
-    Edge edgearray[inedge][outedge];
+    
+    std::string* newseq;        //Sequenz
+    std::vector<Edge> inedges;  //eingehenden Kanten
+    std::vector<Edge> outedges; //ausgehenden Kanten
+
+    
 
     
     
