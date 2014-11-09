@@ -7,7 +7,8 @@
 
 #ifndef GRAPH_H_
 #define GRAPH_H_
-
+#include "Node.h"
+#include "Sequence.h"
 class Graph {
 /*
  *
