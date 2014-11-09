@@ -27,33 +27,45 @@ Node::Node(const Sequence& sequence){
 }
 
 /*
- //operator "="
- Sequence& Sequence::operator=(const Sequence& seq)
- {
- sequence_ = seq.sequence_;
- return *this;
+ * Destruktor
+ */
+Node::~Node(){
+}
+
+/*
+ * Zuweisungsoperatorator "="
+ */
+Node& Node::operator=(const Node& node){
+    sequence_= node.sequence_;
+    inedges=node.getInEdges();
+    outedges=node.getOutEdges();
+    return *this;
+}
+
+/*
+ * Operator "=="
+ */
+bool Node::operator==(<#const Node &node#>) const {
+    return ((sequence_==node.sequence_)&&(inedges=node.inedges)&&(outedges==node.outedges));
+}
+/*//operator "="
+ Sequence& Sequence::operator=(const Sequence& seq){
+     sequence_ = seq.sequence_;
+     return *this;
  }
+
  //Copy Constructor
  Sequence::Sequence(const Sequence& seq){
  sequence_ = seq.sequence_;
  }
  
- //Detailed Constructor
+//Detailed Constructor
  Sequence::Sequence(const std::string& seq){
  sequence_ = seq;
  }
 */
 
 
-/*
- * Zuweisungsoperatorator "="
- */
- /*Node& Node::operator=(const Node& node){
-    sequence_= node.sequence_;
-    inedges=node.getInEdges();
-    outedges=node.getOutEdges();
-    
-}*/
 
 
 

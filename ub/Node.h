@@ -6,6 +6,11 @@
 #include "Edge.h"
 #include <vector>
 #include <list>
+#include <string.h>
+#include <iostream>
+#include <string>
+#include <stdio.h>
+#include <cstring>
 
 class Node {
 public:
@@ -69,7 +74,7 @@ public:
     
 public:
     
-    Sequence* sequence_; // Sequenz
+    Sequence sequence_;        // Sequenz
     std::vector<Edge> inedges;  //eingehenden Kanten
     std::vector<Edge> outedges; //ausgehenden Kanten
 

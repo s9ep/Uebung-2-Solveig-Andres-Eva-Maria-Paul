@@ -3,7 +3,12 @@
 
 #include "Node.h"
 #include "Sequence.h"
-
+#include "Edge.h"
+#include <string.h>
+#include <iostream>
+#include <string>
+#include <stdio.h>
+#include <cstring>
 
 
 class Edge {
