@@ -29,8 +29,7 @@ Node::Node(const Sequence& sequence){
 /*
  * Destruktor
  */
-Node::~Node(){
-}
+Node::~Node(){}
 
 /*
  * Zuweisungsoperatorator "="
@@ -58,59 +57,32 @@ bool Node::operator!=(const Node &node) const {
 /*
 * Gibt die Liste aller ausgehenden Kanten zurueck
 */
-std::vector<Edge> getOutEdges()  {
-    return Node::outedges;
+std::vector<Edge> Node::getOutEdges() const {
+    return outedges;
 }
 /*
 * Gibt die Liste aller eingehenden Kanten zurueck
 */
-std::vector<Edge> getInEdges() const {
+std::vector<Edge> Node::getInEdges() const {
     return Node::inedges;
 }
 /*
 * erstellt eine Kante von diesem zum uebergebenen Knoten mit korrekten Kantengewicht
 */
 
-Edge buildEdgeTo(Node& node){
-    Edge edge = new Edge(*this, node); // neue Kante
-    Node::outedges.push_back[edge]; //fuege neue Ausgehende Kante hinzu --> Kantengewicht wird in  "Edge" autmatisch geupdatet
+Edge Node::buildEdgeTo(Node& node){
+    Edge edge = new Edge(this,node); // neue Kante
+    outedges.push_back[edge]; //fuege neue Ausgehende Kante hinzu --> Kantengewicht wird in  "Edge" autmatisch geupdatet
     return edge;
 }
 
 /*
 * falls eine ausgehende Kante zu node besteht, wird diese entfernt
 */
-void removeEdgeTo(Node& node){
-if(!Node::outedges.empty()){
-    for (std::vector<Edge>::iterator edge=Node::outedges.begin();  edge!=Node::outedges.end(); ) {
-      edge = Node::outedges.erase(edge); // ausgehende Kante wird geloescht
-  else
-      ++it;
- }
+void Node::removeEdgeTo(Node& node){
+    outedges.erase(std::remove(outedges.begin(), outedges.end(), node), outedges.end());
     
-
-
-
-
-/*get_InEdge{return (inedge);}
-Node get_OutEdge {return (outedge);}
-
-Node::Node(string* newseq){
-		newseq = new string[strlen(newseq)+1];
-
-	}
-
-	Node::Node(const Node& n){
-
-	}
-
-
-	Node::~Node() {
-		// TODO Auto-generated destructor stub
-	}
-
-*/
-
+}
 
 
 

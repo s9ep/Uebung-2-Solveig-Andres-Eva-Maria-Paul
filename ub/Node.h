@@ -32,7 +32,7 @@ public:
     /*
      * Destruktor
      */
-    virtual ~Node();
+     ~Node();
     
     /*
      * Zuweisungsoperatorator "="
@@ -74,10 +74,11 @@ public:
     
 public:
     
+    
     Sequence sequence_;        // Sequenz
     std::vector<Edge> inedges;  //eingehenden Kanten
     std::vector<Edge> outedges; //ausgehenden Kanten
-
+    std::vector<Node> nodes;
     
 
     

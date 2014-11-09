@@ -3,7 +3,7 @@
 /*
  * Default - Konstruktor
  */
-Edge::Edge():target(new Node()),source(new Node()){
+Edge::Edge():target(),source(){
   
 }
 
@@ -24,7 +24,7 @@ Edge::Edge(const Node& s, const Node& t):target(t),source(s){
 /*
  * Destruktor
  */
-Edge::~Edge() {
+Edge::~Edge(){
 }
 
 /*
@@ -45,13 +45,13 @@ bool Edge::operator!=(const Edge& edge) const{
  * liefert den Ausgangsknoten der Kante zurueck
  */
 const Node& Edge::getSource() const{
-    return Edge::source;
+    return source;
 }
 /*
  * liefert den Zielknoten der Kante zurueck
  */
 const Node& Edge::getTarget() const{
-    return Edge::target;
+    return target;
 }
 
 /*
