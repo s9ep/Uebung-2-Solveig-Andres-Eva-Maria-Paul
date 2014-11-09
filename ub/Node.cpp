@@ -81,11 +81,13 @@ Edge buildEdgeTo(Node& node){
 * falls eine ausgehende Kante zu node besteht, wird diese entfernt
 */
 void removeEdgeTo(Node& node){
-   for (std::vector<Edge>::iterator edge=outedges.begin();  edge!=outedges.end(); ) {
+if(!Node::outedges.empty()){
+    for (std::vector<Edge>::iterator edge=Node::outedges.begin();  edge!=Node::outedges.end(); ) {
       it = Edge::outedges.erase(it); // ausgehende Kante wird geloescht
   else
       ++it;
  }
+    
 
 
 
