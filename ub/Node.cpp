@@ -45,28 +45,47 @@ Node& Node::operator=(const Node& node){
 /*
  * Operator "=="
  */
-bool Node::operator==(<#const Node &node#>) const {
-    return ((sequence_==node.sequence_)&&(inedges=node.inedges)&&(outedges==node.outedges));
+bool Node::operator==(const Node &node) const {
+    return ((sequence_==node.sequence_)&&(inedges==node.inedges)&&(outedges==node.outedges));
 }
-/*//operator "="
- Sequence& Sequence::operator=(const Sequence& seq){
-     sequence_ = seq.sequence_;
-     return *this;
- }
 
- //Copy Constructor
- Sequence::Sequence(const Sequence& seq){
- sequence_ = seq.sequence_;
- }
- 
-//Detailed Constructor
- Sequence::Sequence(const std::string& seq){
- sequence_ = seq;
- }
+/*
+ * Operator "!="
+ */
+bool Node::operator!=(const Node &node) const {
+    return !((sequence_==node.sequence_)&&(inedges==node.inedges)&&(outedges==node.outedges));
+}
+/*
+* Gibt die Liste aller ausgehenden Kanten zurueck
+*/
+std::vector<Edge> getOutEdges() const {
+    return Node::outedges;
+}
+/*
+* Gibt die Liste aller eingehenden Kanten zurueck
+*/
+std::vector<Edge> getInEdges() const {
+    return Node::inedges;
+}
+/*
+* erstellt eine Kante von diesem zum uebergebenen Knoten mit korrekten Kantengewicht
 */
 
+Edge buildEdgeTo(Node& node){
+    Edge edge = new Edge(*this, node); // neue Kante
+    Node::outedges.push_back[edge]; //fuege neue Ausgehende Kante hinzu --> Kantengewicht wird in  "Edge" autmatisch geupdatet
+    return edge;
+}
 
-
+/*
+* falls eine ausgehende Kante zu node besteht, wird diese entfernt
+*/
+void removeEdgeTo(Node& node){
+   for (std::vector<Edge>::iterator edge=outedges.begin();  edge!=outedges.end(); ) {
+      it = Edge::outedges.erase(it); // ausgehende Kante wird geloescht
+  else
+      ++it;
+ }
 
 
 
@@ -76,7 +95,7 @@ Node get_OutEdge {return (outedge);}
 
 Node::Node(string* newseq){
 		newseq = new string[strlen(newseq)+1];
-		
+
 	}
 
 	Node::Node(const Node& n){
@@ -89,8 +108,8 @@ Node::Node(string* newseq){
 	}
 
 */
-	
-	
+
+
 
 
 
