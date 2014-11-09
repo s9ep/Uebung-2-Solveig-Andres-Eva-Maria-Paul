@@ -58,7 +58,7 @@ bool Node::operator!=(const Node &node) const {
 /*
 * Gibt die Liste aller ausgehenden Kanten zurueck
 */
-std::vector<Edge> getOutEdges() const {
+std::vector<Edge> getOutEdges()  {
     return Node::outedges;
 }
 /*
@@ -83,7 +83,7 @@ Edge buildEdgeTo(Node& node){
 void removeEdgeTo(Node& node){
 if(!Node::outedges.empty()){
     for (std::vector<Edge>::iterator edge=Node::outedges.begin();  edge!=Node::outedges.end(); ) {
-      it = Edge::outedges.erase(it); // ausgehende Kante wird geloescht
+      edge = Node::outedges.erase(edge); // ausgehende Kante wird geloescht
   else
       ++it;
  }

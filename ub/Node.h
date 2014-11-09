@@ -69,7 +69,7 @@ public:
      */
     void removeEdgeTo(Node& node);
     
-    
+
 
     
 public:

@@ -183,3 +183,8 @@ std::istream& operator>>(std::istream& strm, Graph& graph){
 
     return strm;
 }
+
+// Operator << // TODO
+std::istream& operator<<(std::ostream& strm, Graph& graph){
+    return strm;
+}

@@ -3,8 +3,8 @@
 /*
  * Default - Konstruktor
  */
-Edge::Edge(){
-
+Edge::Edge():target(new Node()),source(new Node()){
+  
 }
 
 /*
