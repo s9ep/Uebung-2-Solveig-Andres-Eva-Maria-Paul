@@ -58,8 +58,7 @@ const Node& Edge::getTarget() const{
  * liefert die Ueberlappung der Knoten zurueck
  */
 unsigned int Edge::getOverlap() const{
-    // TODO
- return 0;
+    return Edge::source.sequence_.overlap(Edge::target.sequence_);
 }
 
 /*
@@ -76,6 +75,7 @@ void Edge::updateEdgeWeight(){
 unsigned int Edge::getEdgeWeight(){
     return edge_weight;
 }
+
 
 
 
