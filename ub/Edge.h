@@ -1,7 +1,7 @@
 #ifndef EDGE_H_
 #define EDGE_H_
 
-#include "Node.h"
+//#include "Node.h"
 #include "Sequence.h"
 #include "Edge.h"
 #include <string.h>
@@ -10,7 +10,7 @@
 #include <stdio.h>
 #include <cstring>
 
-
+class Node;
 class Edge {
 public:
     /*
@@ -70,8 +70,8 @@ public:
     unsigned int getEdgeWeight();
     
 public:
-     Node source; // Startknoten
-     Node target; // Zielknoten
+     Node& source; // Startknoten
+     Node& target; // Zielknoten
     
     unsigned int edge_weight=0; // Kantengewicht
     
