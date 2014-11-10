@@ -182,9 +182,24 @@ std::istream& operator>>(std::istream& strm, Graph& graph){
     }
 
     return strm;
-}
 
-// Operator << // TODO
-std::istream& operator<<(std::ostream& strm, Graph& graph){
-    return strm;
+
+// Operator <<
+/* Beispiel:
+*digraph{
+*    a->b [label="0.2",weight="0.2"];
+* }
+*
+*/
+std::ostream& operator<<(std::ostream& ostr, const Graph&){
+    // Kopf
+    ostr << 'digraph{' <<endl;
+    
+    //Ausgabe der Knoten
+    for(node = nodelist.begin(); node != node.end(); node++) {
+        std::cout << (*node) << std::endl;
+    }
+    // }
+    ostr<<'}' <<endl;
+    return ostr;
 }
