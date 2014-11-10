@@ -107,6 +107,9 @@ int main(int argc, char* argv[]){
     
     //new Sequence
     Protein prot1("aaa");
+    NucleicAcid n_s("a");
+    NucleicAcid n_t("b");
+    
     graph1.addSequence(prot1); //fuege Sequenz hinzu
     std::list<Node> nodelist1= graph1.getterNodelist(); //hole nodelist des Graphen1
     ASSERT(nodelist1.size()==1); // hat jetzt die Groesse 2?
@@ -120,7 +123,13 @@ int main(int argc, char* argv[]){
     graph2.addSequence(prot1);
     ASSERT(graph2.hasNode(prot1)); // sollte jetzt aber enthalten sein
 
+    Node node_target(n_t); // neuer Knoten
+    Node node_source(n_s); // neuer Knoten
+    Edge edge1(node_source,node_target); // Kante erstellt
+    std::vector<Edge> outedges =node_source.getOutEdges(); //
     
+    //ASSERT(outedges.== edge1);
+    bool enthalten=false;
     
     
 }
