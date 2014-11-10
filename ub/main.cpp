@@ -104,9 +104,22 @@ int main(int argc, char* argv[]){
     Graph graph1("atg");
     Graph graph2("atg");
     Graph graph3("cac");
-
-    // Assert
     
+    //new Sequence
+    Protein prot1("aaa");
+    graph1.addSequence(prot1); //fuege Sequenz hinzu
+    std::list<Node> nodelist1= graph1.getterNodelist(); //hole nodelist des Graphen1
+    ASSERT(nodelist1.size()==1); // hat jetzt die Groesse 2?
+    ASSERT(graph1.hasNode(prot1)); // enthaelt Knoten?
+    std::list<Node> nodelist= graph1.getterNodelist(); //hole nodelist des Graphen1
+    ASSERT(nodelist.size()==2); // hat jetzt die Groesse 2?
+    
+    Node node(prot1); // neuer Knoten mit node1
+    ASSERT(graph1.hasNode(prot1)); // ist der Knoten schon enthalten? --> muesste ja herauskommen
+    ASSERT(!graph2.hasNode(prot1)); // sollte nicht enthalten sein
+    graph2.addSequence(prot1);
+    ASSERT(graph2.hasNode(prot1)); // sollte jetzt aber enthalten sein
+
     
     
     
