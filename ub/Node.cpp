@@ -22,8 +22,7 @@ Node::Node(const Node& node):sequence_(node.sequence_),inedges(node.getInEdges()
 /*
  * Detailed Konstruktor
  */
-Node::Node(const Sequence& sequence){
-     sequence_=sequence;
+Node::Node(const Sequence& sequence):sequence_(sequence){
 }
 
 /*
@@ -71,8 +70,9 @@ std::vector<Edge> Node::getInEdges() const {
 */
 
 Edge Node::buildEdgeTo(Node& node){
-    Edge edge = new Edge(this,node); // neue Kante
-    outedges.push_back[edge]; //fuege neue Ausgehende Kante hinzu --> Kantengewicht wird in  "Edge" autmatisch geupdatet
+    Edge edge = *new Edge(*this,node); // neue Kante
+    outedges.push_back(edge);
+   //fuege neue Ausgehende Kante hinzu --> Kantengewicht wird in  "Edge" autmatisch geupdatet
     return edge;
 }
 
@@ -84,7 +84,7 @@ void Node::removeEdgeTo(Node& node){
     
 }
 
-Sequence Node::getSequence(){
+Sequence& Node::getSequence(){
     return sequence_;
 }
 

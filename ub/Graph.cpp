@@ -130,7 +130,7 @@ void Graph::removeNode(Node& node){
 }
 
 Edge getEdge(Node& src, Node& target){
-	if (std::list<Edge>::iterator findEdge = std::find(edgelist.begin(), edgelist.end(), (src, target))!=0){
+	/*if (std::list<Edge>::iterator findEdge = std::find(edgelist.begin(), edgelist.end(), (src, target))!=0){
 		return findEdge;
 	}
 	if (std::list<Edge>::iterator findEdge = std::find(edgelist.begin(), edgelist.end(), (target, src))!=0){ //zweiter iterator unnötig??
@@ -139,7 +139,8 @@ Edge getEdge(Node& src, Node& target){
 		Edge *newedge = new Edge(src, target);
 		edgelist.push_back(*newedge);
 		return newedge;
-	}
+	}*/
+    return *new Edge();
 }
 
 Edge Graph::getEdge(const Sequence& src, const Sequence& target){
@@ -209,13 +210,13 @@ std::ostream& operator<<(std::ostream& ostr, const Graph&){
     
     //Ausgabe der Knoten
     // iteriere ueber alle Knoten
-    for(std::list<Node>::iterator node = nodelist.begin(); node != nodelist.end(); node++){
+ /*   for(std::list<Node>::iterator node = nodelist.begin(); node != nodelist.end(); node++){
         // nehme alle Ausgabekanten
         std::vector<Edge> outedges = node->getOutEdges();
         for(std::vector<Edge>::iterator edge = outedges().begin(); edge != outedges.end(); edge++){
             std::cout<<node.Node::getSequence<< '->'<< edge.Edge::target.Sequence::sequence_<< '[label="' << edge.Edge::getEdgeWeight<< ',weight="' << edge.Edge::getEdgeWeight<< '"];' <<endl;
         }
-    }
+    }*/
     
     // }
     ostr<<'}' <<endl;
