@@ -101,7 +101,7 @@ bool Graph::hasNode(const Sequence& seq)const{
     
     for(std::list<Node>::iterator node = nodelist.begin(); node != nodelist.end(); node++)
     {
-        if (node->getSequence()==seq){
+        if (node->getSequence()==seq){ // ist sequence schon vorhanden?
             has_node=true;
         }
     }
@@ -117,8 +117,8 @@ Node& Graph::getNode(const Sequence& seq){
 		return thisnode;
 	}else{
 		Node *newnode = new Node; //wenn sequence keinen node hat, erstelle einen neuen node
-		nodelist.push_back(*newnode); //füge den node in die liste hinzu
-		return newnode; // gib den neuen node zurück
+		nodelist.push_back(*newnode); //fuege den node in die liste hinzu
+		return *newnode; // gib den neuen node zurück
 	}
 }
 
