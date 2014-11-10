@@ -1,11 +1,15 @@
 #include "Edge.h"
 #include "Node.h"
 
+NucleicAcid n_s("a");
+NucleicAcid n_t("b");
+Node node_target(n_t); // neuer Knoten
+Node node_source(n_s);
 /*
  * Default - Konstruktor
  */
-Edge::Edge():target(),source(){
-  
+Edge::Edge():source(n_s),target(n_t){
+    
 }
 
 /*
