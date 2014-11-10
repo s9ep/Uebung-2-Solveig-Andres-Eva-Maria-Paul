@@ -70,7 +70,8 @@ public:
     void removeEdgeTo(Node& node);
     
     friend std::ostream& operator<<(std::ostream&, const Node&);
-
+ 
+    Sequence getSequence();
 
 
     

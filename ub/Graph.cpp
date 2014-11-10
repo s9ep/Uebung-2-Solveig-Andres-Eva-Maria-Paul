@@ -196,13 +196,13 @@ std::ostream& operator<<(std::ostream& ostr, const Graph&){
     ostr << 'digraph{' <<endl;
     
     //Ausgabe der Knoten
+    // iteriere ueber alle Knoten
     for(node = nodelist.begin(); node != node.end(); node++) {
-        
+        // nehme alle Ausgabekanten
         std::vector<Edge> outedges = node.getOutEdges();
         for (edge=outedges.begin(); edge != edge.end(); edge++) {
-            std::cout<<node.getSequence()<< '->'<< edge.getTarget().getSequence()
+            std::cout<<node.getSequence()<< '->'<< edge.getTarget().getSequence() << '[label="' << edge.getWeight() << ',weight="' << edge.getWeight() << '"];' <<endl;
         }
-        std::cout << (*node) << std::endl;
     }
     // }
     ostr<<'}' <<endl;
