@@ -80,8 +80,8 @@ std::list<Node> getterNodelist(){
 	return (nodelist);
 }
 
-void setterEdgelist(std::list<Edge>& el){
-    Edge::edgelist = el;
+void setterEdgelist(std::list<Edge> el){
+    edgelist = el;
 }
 
 std::vector<Edge> getterEdgelist(){
@@ -143,13 +143,13 @@ Edge getEdge(Node& src, Node& target){
 }
 
 Edge Graph::getEdge(const Sequence& src, const Sequence& target){
-	Node srcnode = Graph::getNode(src);
-	Node targetnode = Graph::getNode(target);
-	if (srcnode==0){//eine der beiden nodes leer? neuen erstellen
-		srcnode = new Node(src);
+	Node& srcnode= Graph::getNode(src);
+	Node& targetnode = Graph::getNode(target);
+    if (!Graph::hasNode(src)){//eine der beiden nodes leer? neuen erstellen
+		srcnode = *new Node(src);
 	}
-	if (targetnode ==0){
-			targetnode = new Node(target);
+	if (!Graph::hasNode(target)){
+			targetnode = *new Node(target);
 		}
 	return getEdge(srcnode, targetnode); //edge zw. src und target zurückgeben
 }
