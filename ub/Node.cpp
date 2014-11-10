@@ -22,7 +22,7 @@ Node::Node(const Node& node):sequence_(node.sequence_),inedges(node.getInEdges()
 /*
  * Detailed Konstruktor
  */
-Node::Node(const Sequence& sequence):sequence_(sequence){
+Node::Node(Sequence& sequence):sequence_(sequence){
 }
 
 /*

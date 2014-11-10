@@ -64,19 +64,19 @@ Node getterNode(){
 	return (thisnode);
 }
 
-void setterEdge(Edge e){
+void Graph::setterEdge(Edge e){
 	thisedge = e;
 }
 
-Edge getterEdge(){
+Edge Graph::getterEdge(){
 	return (thisedge);
 }
 
-void setterNodelist(std::list<Node>& nl){
+void Graph::setterNodelist(std::list<Node>& nl){
 	nodelist = nl;
 }
 
-std::list<Node> getterNodelist(){
+std::list<Node> Graph::getterNodelist(){
 	return (nodelist);
 }
 
@@ -130,16 +130,17 @@ void Graph::removeNode(Node& node){
 }
 
 Edge getEdge(Node& src, Node& target){
-	/*if (std::list<Edge>::iterator findEdge = std::find(edgelist.begin(), edgelist.end(), (src, target))!=0){
-		return findEdge;
+    std::vector<Edge>::iterator findEdge = std::find(edgelist.begin(), edgelist.end(), Edge(src, target));
+    // gibt es die Kante schon? -> ja, dann gebe sie aus
+	if (findEdge !=edgelist.end()){
+		return *findEdge;
 	}
-	if (std::list<Edge>::iterator findEdge = std::find(edgelist.begin(), edgelist.end(), (target, src))!=0){ //zweiter iterator unnötig??
-		return findEdge;
-	}else{
+    // nein, dann erstelle eine neue und gebes sie
+     else{
 		Edge *newedge = new Edge(src, target);
 		edgelist.push_back(*newedge);
-		return newedge;
-	}*/
+		return *newedge;
+	}
     return *new Edge();
 }
 
@@ -147,10 +148,10 @@ Edge Graph::getEdge(const Sequence& src, const Sequence& target){
 	Node& srcnode= Graph::getNode(src);
 	Node& targetnode = Graph::getNode(target);
     if (!Graph::hasNode(src)){//eine der beiden nodes leer? neuen erstellen
-		srcnode = *new Node(src);
+		srcnode = new Node(src);
 	}
 	if (!Graph::hasNode(target)){
-			targetnode = *new Node(target);
+			targetnode = new Node(target);
 		}
 	return getEdge(srcnode, targetnode); //edge zw. src und target zurückgeben
 }
@@ -210,13 +211,13 @@ std::ostream& operator<<(std::ostream& ostr, const Graph&){
     
     //Ausgabe der Knoten
     // iteriere ueber alle Knoten
- /*   for(std::list<Node>::iterator node = nodelist.begin(); node != nodelist.end(); node++){
+   for(std::list<Node>::iterator node = nodelist.begin(); node != nodelist.end(); node++){
         // nehme alle Ausgabekanten
         std::vector<Edge> outedges = node->getOutEdges();
-        for(std::vector<Edge>::iterator edge = outedges().begin(); edge != outedges.end(); edge++){
-            std::cout<<node.Node::getSequence<< '->'<< edge.Edge::target.Sequence::sequence_<< '[label="' << edge.Edge::getEdgeWeight<< ',weight="' << edge.Edge::getEdgeWeight<< '"];' <<endl;
+        for(std::vector<Edge>::iterator edge = outedges.begin(); edge != outedges.end(); edge++){
+            std::cout<<node->getSequence()<< '->'<< edge->getTarget().sequence_<< '[label="' << edge->getEdgeWeight()<< ',weight="' << edge->getEdgeWeight()<< '"];' <<endl;
         }
-    }*/
+    }
     
     // }
     ostr<<'}' <<endl;

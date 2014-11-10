@@ -29,7 +29,7 @@ public:
     /*
      * Detailed Konstruktor
      */
-    explicit Node(const Sequence& sequence);
+    explicit Node( Sequence& sequence);
     
     /*
      * Destruktor
