@@ -76,8 +76,8 @@ public:
     unsigned int getEdgeWeight();
     
 public:
-     Node& source; // Startknoten
-     Node& target; // Zielknoten
+     const Node& source; // Startknoten
+     const Node& target; // Zielknoten
     
     unsigned int edge_weight; // Kantengewicht
     
