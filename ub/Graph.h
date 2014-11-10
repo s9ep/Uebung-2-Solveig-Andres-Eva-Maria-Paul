@@ -56,6 +56,7 @@ public:
 	}
 
 */
+public:
 	Graph();
 	virtual ~Graph();
 	Graph(const Graph& g);
