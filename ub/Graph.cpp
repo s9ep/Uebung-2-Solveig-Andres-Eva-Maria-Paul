@@ -209,10 +209,10 @@ std::ostream& operator<<(std::ostream& ostr, const Graph&){
     
     //Ausgabe der Knoten
     // iteriere ueber alle Knoten
-    for(std::list<Node> node = nodelist.begin(); node != node.end(); node++) {
+    for(std::list<Node>::iterator node = nodelist.begin(); node != nodelist.end(); node++)
         // nehme alle Ausgabekanten
-        std::vector<Edge> outedges = node.Node::getOutEdges;
-        for ( std::vector<Edge> edge=outedges.begin(); edge != edge.end(); edge++) {
+        std::vector<Edge> outedges = node->getOutEdges();
+    for(std::vector<Edge>::iterator edge = outedges().begin(); edge != outedges.end(); edge++){
             std::cout<<node.Node::getSequence<< '->'<< edge.Edge::target.Sequence::sequence_<< '[label="' << edge.Edge::getEdgeWeight<< ',weight="' << edge.Edge::getEdgeWeight<< '"];' <<endl;
         }
     }

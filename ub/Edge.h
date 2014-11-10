@@ -18,7 +18,7 @@ class Node;
 class Edge {
 public:
 
-	Edge edge;
+	//Edge edge;
     /*
      * Default - Konstruktor
      */
