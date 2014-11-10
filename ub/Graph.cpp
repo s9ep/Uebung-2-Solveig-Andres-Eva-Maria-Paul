@@ -6,6 +6,8 @@
  */
 
 #include "Graph.h"
+#include "Node.h"
+#include "Edge.h"
 #include "NucleicAcid.h"
 
 #include <stdio.h>
@@ -130,9 +132,9 @@ Edge getEdge(Node& src, Node& target){
 	}
 }
 
-Edge getEdge(const Sequence& src, const Sequence& target){
+Edge Graph::getEdge(const Sequence& src, const Sequence& target){
 	Node srcnode = Graph::getNode(src);
-	Node targetnode = target.getNode();
+	Node targetnode = Graph::getNode(target);
 	if (srcnode==0){//eine der beiden nodes leer? neuen erstellen
 		srcnode = new Node(src);
 	}
@@ -182,7 +184,7 @@ std::istream& operator>>(std::istream& strm, Graph& graph){
     }
 
     return strm;
-
+}
 
 // Operator <<
 /* Beispiel:
@@ -197,11 +199,11 @@ std::ostream& operator<<(std::ostream& ostr, const Graph&){
     
     //Ausgabe der Knoten
     // iteriere ueber alle Knoten
-    for(node = nodelist.begin(); node != node.end(); node++) {
+    for(std::list<Node> node = nodelist.begin(); node != node.end(); node++) {
         // nehme alle Ausgabekanten
-        std::vector<Edge> outedges = node.getOutEdges();
-        for (edge=outedges.begin(); edge != edge.end(); edge++) {
-            std::cout<<node.getSequence()<< '->'<< edge.getTarget().getSequence() << '[label="' << edge.getWeight() << ',weight="' << edge.getWeight() << '"];' <<endl;
+        std::vector<Edge> outedges = node.Node::getOutEdges;
+        for ( std::vector<Edge> edge=outedges.begin(); edge != edge.end(); edge++) {
+            std::cout<<node.Node::getSequence<< '->'<< edge.Edge::target.Sequence::sequence_<< '[label="' << edge.Edge::getEdgeWeight<< ',weight="' << edge.Edge::getEdgeWeight<< '"];' <<endl;
         }
     }
     // }
