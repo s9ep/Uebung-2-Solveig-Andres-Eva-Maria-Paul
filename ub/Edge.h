@@ -79,7 +79,7 @@ public:
      Node& source; // Startknoten
      Node& target; // Zielknoten
     
-    unsigned int edge_weight=  0; // Kantengewicht
+    unsigned int edge_weight; // Kantengewicht
     
     
 };

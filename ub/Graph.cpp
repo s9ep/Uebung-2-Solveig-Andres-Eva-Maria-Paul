@@ -26,10 +26,10 @@ using namespace std;
 //template <class Category, class T, class Distance = ptrdiff_t,
 //          class Pointer = T*, class Reference = T&>
 
-	std::list<Node> nodelist;
-	std::vector<Edge> edgelist;
-	Node thisnode;
-	Edge thisedge;
+std::list<Node> nodelist;
+std::vector<Edge> edgelist;
+Node thisnode;
+Edge thisedge;
 
 
 	/**
@@ -60,13 +60,13 @@ void setterNode(Node& n){
 	thisnode = n;
 }
 
-Node getterNode(){
-	return (thisnode);
+Node Graph::getterNode(){
+    return (thisnode);
 }
 
-void Graph::setterEdge(Edge e){
-	thisedge = e;
-}
+/*void setterEdge(Edge e){
+    thisedge = e;
+}*/
 
 Edge Graph::getterEdge(){
 	return (thisedge);
