@@ -84,6 +84,11 @@ void Node::removeEdgeTo(Node& node){
     
 }
 
+Sequence Node::getSequence(){
+    return sequence_;
+}
+
+
 std::ostream& operator<<(std::ostream& ostr, const Node&){
     
     return ostr;
