@@ -64,7 +64,7 @@ Node getterNode(){
 	return (thisnode);
 }
 
-void setterEdge(Edge& e){
+void setterEdge(Edge e){
 	thisedge = e;
 }
 
@@ -80,8 +80,8 @@ std::list<Node> getterNodelist(){
 	return (nodelist);
 }
 
-void setterEdgelist(std::list<Edge> el){
-    edgelist = el;
+void setterEdgelist(std::list<Edge> const &el){
+    edgelist.insert(edgelist.begin(), el.begin(),el.end());
 }
 
 std::vector<Edge> getterEdgelist(){
@@ -209,13 +209,14 @@ std::ostream& operator<<(std::ostream& ostr, const Graph&){
     
     //Ausgabe der Knoten
     // iteriere ueber alle Knoten
-    for(std::list<Node>::iterator node = nodelist.begin(); node != nodelist.end(); node++)
+    for(std::list<Node>::iterator node = nodelist.begin(); node != nodelist.end(); node++){
         // nehme alle Ausgabekanten
         std::vector<Edge> outedges = node->getOutEdges();
-    for(std::vector<Edge>::iterator edge = outedges().begin(); edge != outedges.end(); edge++){
+        for(std::vector<Edge>::iterator edge = outedges().begin(); edge != outedges.end(); edge++){
             std::cout<<node.Node::getSequence<< '->'<< edge.Edge::target.Sequence::sequence_<< '[label="' << edge.Edge::getEdgeWeight<< ',weight="' << edge.Edge::getEdgeWeight<< '"];' <<endl;
         }
     }
+    
     // }
     ostr<<'}' <<endl;
     return ostr;
