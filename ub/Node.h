@@ -1,7 +1,6 @@
 #ifndef NODE_H_
 #define NODE_H_
 
-#include "Node.h"
 #include "Sequence.h"
 #include "Edge.h"
 #include <vector>
