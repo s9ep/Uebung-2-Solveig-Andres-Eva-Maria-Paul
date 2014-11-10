@@ -145,13 +145,13 @@ Edge getEdge(Node& src, Node& target){
 }
 
 Edge Graph::getEdge(const Sequence& src, const Sequence& target){
-	Node& srcnode= Graph::getNode(src);
-	Node& targetnode = Graph::getNode(target);
+	Node srcnode= Graph::getNode(src);
+	Node targetnode = Graph::getNode(target);
     if (!Graph::hasNode(src)){//eine der beiden nodes leer? neuen erstellen
-		srcnode = new Node(src);
+		//srcnode = new Node(src);
 	}
 	if (!Graph::hasNode(target)){
-			targetnode = new Node(target);
+			//targetnode = new Node(target);
 		}
 	return getEdge(srcnode, targetnode); //edge zw. src und target zurückgeben
 }
