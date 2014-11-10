@@ -5,8 +5,6 @@
 #include "Sequence.h"
 #include "Node.h"
 #include "Edge.h"
-#include "NucleicAcid.h"
-
 #include <string.h>
 #include <iostream>
 #include <string>

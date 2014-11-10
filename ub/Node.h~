@@ -11,7 +11,7 @@
 #include <stdio.h>
 #include <cstring>
 
-
+template <class Edge>
 class Edge;
 
 class Node {
