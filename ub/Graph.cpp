@@ -84,7 +84,7 @@ void setterEdgelist(std::list<Edge>& el){
 	edgelist = el;
 }
 
-std::list<Edge> getterEdgelist(){
+std::vector<Edge> getterEdgelist(){
 	return (edgelist);
 }
 
@@ -97,6 +97,8 @@ std::list<Edge> getterEdgelist(){
 
 
 bool Graph::hasNode(const Sequence& seq)const{
+
+    std::list<Node>::iterator findIter = std::find(nodelist.begin(), nodelist.end(), node);
 	return thisnode != 0;
 }
 
