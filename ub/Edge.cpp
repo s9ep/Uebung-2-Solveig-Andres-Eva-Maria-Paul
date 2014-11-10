@@ -1,8 +1,8 @@
 #include "Edge.h"
 #include "Node.h"
 
-NucleicAcid n_s("a");
-NucleicAcid n_t("b");
+NucleicAcid n_s("");
+NucleicAcid n_t("");
 Node node_target(n_t); // neuer Knoten
 Node node_source(n_s);
 /*

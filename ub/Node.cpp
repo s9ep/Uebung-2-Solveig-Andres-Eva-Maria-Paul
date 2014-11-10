@@ -7,10 +7,12 @@
 #include <stdio.h>
 #include <cstring>
 
+NucleicAcid n_s("");
+
 /*
  * Default - Konstruktor
  */
-Node::Node(){
+Node::Node():sequence_(n_s){
 }
 
 /*
